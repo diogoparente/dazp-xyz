@@ -1,4 +1,3 @@
-import "@/styles/globals.css"
 import { Metadata } from "next"
 
 import { siteConfig } from "@/config/site"
@@ -20,11 +19,9 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
 }
-
 interface RootLayoutProps {
   children: React.ReactNode
 }
@@ -36,16 +33,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <head />
         <body
           className={cn(
-            "min-h-screen bg-c1 font-sans text-c4 antialiased transition-all duration-1000",
+            "min-h-screen bg-c1 font-sans text-c2 antialiased transition-all duration-1000",
             fontSans.variable
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
-              <div className="z-0 mx-[10%] mt-12 flex flex-1 flex-col items-center">
-                {children}
-              </div>
+              <div className="mx-[10%] mt-12 flex-1">{children}</div>
             </div>
           </ThemeProvider>
         </body>

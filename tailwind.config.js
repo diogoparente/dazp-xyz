@@ -1,4 +1,31 @@
 const { fontFamily } = require("tailwindcss/defaultTheme")
+const colors = require("tailwindcss/colors")
+
+delete colors["lightBlue"]
+delete colors["warmGray"]
+delete colors["trueGray"]
+delete colors["coolGray"]
+delete colors["blueGray"]
+
+const dark = {
+  c1: "#202020",
+  c2: colors.sky["300"],
+  c3: colors.blue["500"],
+  c4: colors.white,
+}
+
+const light = {
+  c1: "#eed",
+  c2: "#189144",
+  c3: "#166633",
+  c4: "#202020",
+}
+
+const breakpoints = {
+  sm: "400px",
+  m: "767px",
+  lg: "1024px",
+}
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -8,12 +35,23 @@ module.exports = {
     container: {
       center: true,
       padding: "2rem",
+      maxWidth: "500px",
       screens: {
         "2xl": "1400px",
       },
     },
     extend: {
+      screens: {
+        "sm-max": { max: breakpoints.sm },
+        "md-max": { max: breakpoints.m },
+        "lg-max": { max: breakpoints.lg },
+      },
       colors: {
+        ...colors,
+        c1: "var(--colors-c1)",
+        c2: "var(--colors-c2)",
+        c3: "var(--colors-c3)",
+        c4: "var(--colors-c4)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -70,7 +108,20 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      variables: {
+        DEFAULT: {
+          colors: light,
+        },
+      },
+      darkVariables: {
+        DEFAULT: {
+          colors: dark,
+        },
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@mertasan/tailwindcss-variables"),
+  ],
 }

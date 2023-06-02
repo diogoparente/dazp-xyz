@@ -1,18 +1,27 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Next.js",
-  description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+  name: "dazp.xyz",
+  description: "Building things for the web, one line at a time",
   mainNav: [
     {
-      title: "Home",
-      href: "/",
+      title: "About",
+      id: "about",
+      disabled: false,
+    },
+    {
+      title: "Tech",
+      id: "technologies",
+      disabled: false,
+    },
+    {
+      title: "Career",
+      id: "career",
+      disabled: false,
     },
   ],
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/ui",
-    docs: "https://ui.shadcn.com",
+    linkedin: "https://www.linkedin.com/in/diogoparentedev/",
+    github: "https://github.com/diogoparente",
   },
 }
