@@ -23,5 +23,6 @@ export const siteConfig = {
   links: {
     linkedin: "https://www.linkedin.com/in/diogoparentedev/",
     github: "https://github.com/diogoparente",
+    email: "hello@diogocodes.com",
   },
 }

@@ -1,12 +1,12 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
 
-import Icon from "./icon"
+import Icon, { Icons } from "./icon"
 import SmoothLink from "./smooth-link"
-import { ThemeToggle } from "./theme-toggle"
 import { buttonVariants } from "./ui/button"
 
 const links = siteConfig.mainNav
@@ -18,7 +18,7 @@ const WideNavLinks = ({
   links: { title: string; id: string; disabled: boolean }[]
 }) => {
   return links?.length ? (
-    <nav className="flex gap-6 rounded-md p-2 shadow-md">
+    <nav className="ml-20 flex gap-6 rounded-md p-2 shadow-md md-max:ml-0">
       {links?.map((item, index) => (
         <SmoothLink key={item.id} item={item} index={index} />
       ))}
@@ -28,35 +28,46 @@ const WideNavLinks = ({
 
 const SocialLinks = ({ socials }: { socials: Record<string, string> }) => (
   <span>
-    <div className="flex items-center space-x-1">
-      <Link href={socials.github} target="_blank" rel="noreferrer">
-        <div
-          className={buttonVariants({
-            size: "sm",
-            variant: "ghost",
-          })}
-        >
-          <Icon name="github" className="h-5 w-5" />
-          <span className="sr-only">GitHub</span>
-        </div>
+    <div className="flex items-center space-x-4">
+      <Link
+        href={socials.github}
+        className="hover:scale-110"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Icon
+          name="github"
+          className="h-5 w-5 cursor-pointer fill-current hover:scale-150"
+        />
+        <span className="sr-only">GitHub</span>
       </Link>
-      <Link href={socials.linkedin} target="_blank" rel="noreferrer">
-        <div
-          className={buttonVariants({
-            size: "sm",
-            variant: "ghost",
-          })}
-        >
-          <Icon name="linkedin" className="h-5 w-5 fill-current" />
-          <span className="sr-only">LinkedIn</span>
-        </div>
+      <Link
+        href={socials.linkedin}
+        className="hover:scale-110"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Icon
+          name="linkedin"
+          className="h-5 w-5 cursor-pointer fill-current hover:scale-110"
+        />
+        <span className="sr-only">LinkedIn</span>
+      </Link>
+      <Link
+        href={`mailto:${socials.email}`}
+        className="hover:scale-110"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <Icon name="mail" className="h-5 w-5 cursor-pointer fill-current " />
+        <span className="sr-only">e-mail</span>
       </Link>
     </div>
   </span>
 )
 
 const MobileHeader = () => (
-  <div className="w-full flex-1 items-center justify-between bg-c1 md:hidden md-max:flex">
+  <div className="header-mobile w-full items-center md:hidden">
     <Logo />
     <div className="flex flex-col items-center p-4">
       <SocialLinks socials={socials} />
@@ -64,7 +75,6 @@ const MobileHeader = () => (
         <WideNavLinks links={links} />
       </div>
     </div>
-    <ThemeToggle />
   </div>
 )
 const DesktopHeader = () => (
@@ -73,7 +83,6 @@ const DesktopHeader = () => (
     <WideNavLinks links={links} />
     <div className="flex">
       <SocialLinks socials={socials} />
-      <ThemeToggle />
     </div>
   </div>
 )
@@ -81,11 +90,11 @@ const DesktopHeader = () => (
 const Logo = () => (
   <Link
     href="/"
-    className="max-h-[32px] min-h-[32px] min-w-[32px] max-w-[32px]"
+    className="h-[32px] w-[32px] hover:scale-110"
     rel="noreferrer"
     aria-label="Logo"
   >
-    <Icon name="logo" className="h-full w-full rounded-sm" isCircle={false} />
+    <Icons.logo className="h-full w-full rounded-full" />
   </Link>
 )
 export function SiteHeader() {

@@ -9,15 +9,15 @@ delete colors["blueGray"]
 
 const dark = {
   c1: "#202020",
-  c2: colors.sky["300"],
-  c3: colors.blue["500"],
+  c2: colors.orange["400"],
+  c3: colors.pink["500"],
   c4: colors.white,
 }
 
 const light = {
   c1: "#eed",
-  c2: "#189144",
-  c3: "#166633",
+  c2: colors.purple["600"],
+  c3: colors.indigo["700"],
   c4: "#202020",
 }
 
@@ -45,6 +45,7 @@ module.exports = {
         "sm-max": { max: breakpoints.sm },
         "md-max": { max: breakpoints.m },
         "lg-max": { max: breakpoints.lg },
+        "md-min": { min: breakpoints.m },
       },
       colors: {
         ...colors,

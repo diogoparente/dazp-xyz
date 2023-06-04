@@ -40,7 +40,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontSans.variable
           )}
         >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ThemeProvider attribute="class" forcedTheme="dark">
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
               <div className="z-0 mx-[10%] mt-12 flex flex-1 flex-col items-center">

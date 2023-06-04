@@ -4,6 +4,8 @@ import { Section } from "@/components/ui/section"
 import { Text } from "@/components/ui/text"
 import { Title } from "@/components/ui/title"
 
+import InView from "../hoc/in-view"
+
 const parts = [
   "Hey there!",
   "I'm Diogo, a software engineer from Lisbon.",
@@ -15,17 +17,21 @@ const parts = [
 
 const About = () => (
   <Section sectionId="about">
-    <Title size="medium">About me</Title>
-    <div className="flex flex-col">
-      {parts.map((part, i) => {
-        return (
-          <div key={i}>
-            <Text type="p">{part}</Text>
-            <div className="mt-2" />
-          </div>
-        )
-      })}
-    </div>
+    <InView className={["duration-1000", "slideInRight"]}>
+      <Title size="medium">About me</Title>
+    </InView>
+    <InView className={["duration-1000", "slideInLeft"]}>
+      <div className="flex flex-col">
+        {parts.map((part, i) => {
+          return (
+            <div key={i}>
+              <Text type="p">{part}</Text>
+              <div className="mt-2" />
+            </div>
+          )
+        })}
+      </div>
+    </InView>
   </Section>
 )
 

@@ -18,6 +18,22 @@ const Def = (
 )
 
 export const Icons = {
+  mail: () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="var(--colors-c3)"
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+    </svg>
+  ),
   logo: (props: LucideProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -64,16 +80,16 @@ export const Icons = {
   ),
   sun: (props: LucideProps) => (
     <LightbulbOff
+      {...props}
       fill="var(--colors-c3)"
       style={{ height: 24, width: 24 }}
-      {...props}
     />
   ),
   moon: (props: LucideProps) => (
     <Lightbulb
+      {...props}
       fill="var(--colors-c3)"
       style={{ height: 24, width: 24 }}
-      {...props}
     />
   ),
   linkedin: () => (
@@ -280,7 +296,7 @@ const Icon = ({
     <div className="flex items-center justify-center">
       <IconByName
         {...props}
-        className={`hoverable h-full max-w-[72px] items-stretch ${className} fill-gradient-to-br ${
+        className={`hoverable max-w-[72px] items-stretch bg-c1 ${className} fill-gradient-to-br ${
           isCircle ? "rounded-full" : ""
         } from-c1 to-c3`}
       />
