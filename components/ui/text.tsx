@@ -10,7 +10,7 @@ type TextType = {
 }
 
 const typeClassNames = {
-  p: "antialiased text-lg text-c4 font-medium md-max:text-sm leading-6 contrast-150",
+  p: "antialiased text-sm text-c4 font-medium md:text-md leading-6 contrast-150",
   div: "text-2xl md:text-3xl font-bold bg-gradient-to-br from-c2 to-c3 bg-clip-text tracking-tighter text-transparent contrast-150",
 }
 

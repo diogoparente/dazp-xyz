@@ -5,6 +5,8 @@ import { RefObject } from "react"
 import InView from "@/app/hoc/in-view"
 import useViewportClassName from "@/app/hooks/use-viewport-classname"
 
+import { Text } from "./ui/text"
+
 type TimelineItemType = {
   date: string
   company: string
@@ -15,7 +17,7 @@ type TimelineItemType = {
 const items: TimelineItemType[] = [
   {
     date: "MAR 2023",
-    company: "Andercore",
+    company: "Stealth company",
     jobTitle: "Lead Fullstack Engineer",
     description: [
       "Developing the tech foundations for both the backend and frontend using cutting edge options that reduced time to market",
@@ -80,7 +82,6 @@ const TimelineItem = ({
   return (
     <InView
       className={[
-        "animate-bounce",
         "duration-1000",
         `${index % 2 === 0 ? "slideInRight" : "slideInLeft"}`,
       ]}
@@ -102,9 +103,9 @@ const TimelineItem = ({
 
         <div className="flex flex-1 flex-col justify-center">
           {description.map((d) => (
-            <p key={d} className="mt-2 max-w-lg text-sm md-max:text-xs">
+            <Text type="p" key={d} extraClassName="mt-2 max-w-lg">
               {d}
-            </p>
+            </Text>
           ))}
         </div>
       </div>

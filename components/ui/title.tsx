@@ -10,9 +10,9 @@ type TitleType = {
 }
 
 const sizeClassNames = {
-  big: "text-5xl md:text-6xl font-extrabold h-23 md-max:32 py-[10px]",
-  medium: "text-3xl md:text-4xl font-bold",
-  small: "text-xl md:text-2xl",
+  big: "text-6xl md:text-7xl font-extrabold h-23 md-max:32 py-[10px]",
+  medium: "text-4xl md:text-5xl font-bold",
+  small: "text-xl md:text-xl",
 }
 
 const sizeElements = {
